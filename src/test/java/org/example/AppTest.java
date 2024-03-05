@@ -10,29 +10,21 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+    public void testBillableAmountForResidential()  {
+
+        ResidentalSIte site = new ResidentalSIte();
+        double result = site.getBillableAmount(100,.10);
+        assertEquals(20,result,0.01);
+
+
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+    public void testBillableAmountForLifeline()  {
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+        LifelineSite site = new LifelineSite();
+        double result = site.getBillableAmount(100,.10);
+        assertEquals(6,result,0.01);
+
+
     }
 }
